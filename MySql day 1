@@ -48,5 +48,83 @@ select * from books where author like "J%_n";
 select * from books where author like "J%n";
 
 select * from books where author not like "J%n";
- 
+==================================================
+create database employee_db;
+
+use employee_db;
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
+);
+
+INSERT INTO employees (employee_id, first_name, last_name, department, salary)
+VALUES 
+(1, 'Alice', 'Johnson', 'Engineering', 75000),
+(2, 'Bob', 'Smith', 'Marketing', 62000),
+(3, 'Charlie', 'Davis', 'Engineering', 78000),
+(4, 'Diana', 'Prince', 'Human Resources', 55000),
+(5, 'Edward', 'Norton', 'Sales', 68000);
+
+
+
+
+
+
+
+
+select * from employees;
+
+
+
+
+
+-- write a query to display the details of the employees
+-- who earns the salary between 70k to 76k
+
+select * from employees where salary >= 70000 and salary <= 76000;
+
+-- between and not between ==> RANGES
+select * from employees where salary between 70000 and 76000;
+select * from employees where salary not between 70000 and 76000;  
+
+
+-- display all the employees who belongs to 
+-- engineering and sales depart
+
+select * from employees where department = "Engineering" 
+or department = "Sales" or department = "HR";
+
+select * from employees 
+where department in ("Engineering", "Sales");
+
+select * from employees 
+where department not in ("Engineering", "Sales");
+
+
+select * from employees;
+
+INSERT INTO employees(employee_id, first_name, last_name, salary)
+VALUES (6, 'Sam', 'Johnson', 75000);
+
+-- write a query to display the employees who doesnt hav anyd epartment
+
+select * from employees where department is null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
