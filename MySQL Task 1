@@ -1,0 +1,28 @@
+ `food` Table
+
+| food_id | food_name | category | price | stock |
+| --- | --- | --- | --- | --- |
+| 1 | Pizza | Main Course | 250 | 10 |
+| 2 | Burger | Main Course | 150 | 25 |
+| 3 | Salad | Appetizer | 100 | 15 |
+| 4 | Soda | Beverage | 50 | 50 |
+| 5 | Pasta | Main Course | 200 | 20 |
+| 6 | Soup | Appetizer | 80 | NULL |
+
+---
+
+1. Display all food items that cost more than 150.
+2. List the `food_name` and `price` of all items, sorted by `price` from lowest to highest.
+3. Find all items in the 'Main Course' category that have a stock greater than 15.
+4. Display the `food_name` of items that are NOT in the 'Main Course' category.
+5. List the top 2 most expensive items.
+6. Display food items whose `food_name` has exactly 5 characters.
+7. Find the details of the 2nd cheapest item.
+8. List all items whose `food_name` contains the letter 'a'.
+9. Display items whose price is between 80 and 200.
+10. Find all items where the `stock` information is missing (NULL).
+11. List all items whose `food_name` ends with the letter 'a'.
+12. Display the 3rd and 4th items from the table using `LIMIT` and `OFFSET`.
+13. Find the items that cost exactly 100.
+14. Display the `food_name`, sorted by `category` (alphabetically) and then by `price` (descending).
+15. Display the details of the item with the 2nd highest price.
