@@ -16,4 +16,37 @@ values(100, "Python", "James", 400, 3);
 insert into books 
 values(101, "Java", "Raju", 500, 5);
 
+=======================================================
+select * from books;
+
+
+select * from books where price > 550;
+
+-- display the books whose price is greater than 450 
+-- and quantity is greather than 5 
+ select * from books where price > 450 and quantity > 5;
+ 
+ select * from books where price > 450 or quantity > 2;
+
+ select * from books where author = "Raju";
+
+-- % ==> ano no of characters 
+ select * from books where author like "R%";
+ 
+ select * from books where title like "Ja%";
+
+ select * from books where author like "J%";
+
+select * from books where author like "J_";
+
+select * from books where author like "J_%";
+
+select * from books;
+
+select * from books where author like "J%_n";
+
+select * from books where author like "J%n";
+
+select * from books where author not like "J%n";
+ 
 
