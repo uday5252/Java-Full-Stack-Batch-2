@@ -116,6 +116,36 @@ select * from employees where department is null;
 
 
 
+==================================================================================
+
+select * from employees limit 3;
+select * from employees limit 4;
+select * from employees limit 3 offset 3;
+-- total ==> 6
+-- want ==> 2,3
+select * from employees limit 2 offset 1;
+
+
+select * from employees; 
+
+
+select * from employees order by first_name desc;
+
+select * from employees order by salary asc, first_name desc;
+
+-- write a query to display the name of the employee who 
+-- has highest salary  
+select first_name, last_name from employees order by salary desc limit 1;
+
+
+-- write a query ti display the first_name of the employee
+-- who gets the lowest salary  
+select first_name from employees order by salary asc limit 1;
+
+-- write a query to display the first_name and last_name of the employee 
+-- who earns 2nd lowest salary in the company 
+select first_name, last_name from employees 
+order by salary asc limit 1 offset 1;
 
 
 
