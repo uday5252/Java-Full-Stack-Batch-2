@@ -1,0 +1,19 @@
+create database books_db;
+
+use books_db;
+
+create table books(
+id int, 
+title varchar(30), 
+author varchar(20),
+price int,
+quantity int
+);
+
+insert into books 
+values(100, "Python", "James", 400, 3);
+
+insert into books 
+values(101, "Java", "Raju", 500, 5);
+
+
