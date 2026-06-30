@@ -1,0 +1,119 @@
+
+-- Create Database
+CREATE DATABASE FoodOrderingDB;
+
+-- Use Database
+USE FoodOrderingDB;
+
+-- Create Customers Table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    OrderID VARCHAR(10),
+    City VARCHAR(50)
+);
+
+-- Create Orders Table
+CREATE TABLE Orders (
+    OrderID VARCHAR(10) PRIMARY KEY,
+    FoodItem VARCHAR(50),
+    Restaurant VARCHAR(50),
+    Price DECIMAL(10,2)
+);
+
+-- Insert Data into Customers
+INSERT INTO Customers (CustomerID, CustomerName, OrderID, City) VALUES
+(101, 'Rahul', 'O101', 'Hyderabad'),
+(102, 'Priya', 'O102', 'Chennai'),
+(103, 'Arjun', 'O103', 'Bengaluru'),
+(104, 'Sneha', 'O104', 'Pune'),
+(105, 'Kiran', 'O105', 'Mumbai'),
+(106, 'Neha', 'O106', 'Delhi');
+
+-- Insert Data into Orders
+INSERT INTO Orders (OrderID, FoodItem, Restaurant, Price) VALUES
+('O101', 'Pizza', 'Pizza Hut', 450.00),
+('O102', 'Burger', 'McDonald''s', 250.00),
+('O103', 'Biryani', 'Paradise', 350.00),
+('O107', 'Dosa', 'A2B', 120.00),
+('O108', 'Pasta', 'Domino''s', 300.00);
+
+-- Verify Data
+SELECT * FROM Customers;
+SELECT * FROM Orders;
+
+# Table 1: Customers
+
+| CustomerID | CustomerName | OrderID | City      |
+| ---------: | ------------ | ------- | --------- |
+|        101 | Rahul        | O101    | Hyderabad |
+|        102 | Priya        | O102    | Chennai   |
+|        103 | Arjun        | O103    | Bengaluru |
+|        104 | Sneha        | O104    | Pune      |
+|        105 | Kiran        | O105    | Mumbai    |
+|        106 | Neha         | O106    | Delhi     |
+
+---
+
+# Table 2: Orders
+
+| OrderID | FoodItem | Restaurant | Price |
+| ------- | -------- | ---------- | ----: |
+| O101    | Pizza    | Pizza Hut  |   450 |
+| O102    | Burger   | McDonald's |   250 |
+| O103    | Biryani  | Paradise   |   350 |
+| O107    | Dosa     | A2B        |   120 |
+| O108    | Pasta    | Domino's   |   300 |
+
+
+---
+
+# Question 1
+
+Display:
+
+* Customer Name
+* Food Item
+* Restaurant
+* Price
+
+Show only customers who have matching orders.
+
+---
+
+# Question 2 
+
+Display:
+
+* Customer Name
+* OrderID
+* Food Item
+* Restaurant
+
+Show all customers, even if they have not placed a matching order.
+
+---
+
+# Question 3 
+
+Display:
+
+* Restaurant
+* Food Item
+* Customer Name
+
+Show all orders, even if no customer is associated with them.
+
+---
+
+# Question 4 
+
+Display:
+
+* Customer Name
+* OrderID
+* Food Item
+* Restaurant
+* Price
+
+Show all customers and all orders and matching where possible.
