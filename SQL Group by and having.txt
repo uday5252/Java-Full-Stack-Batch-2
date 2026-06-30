@@ -1,0 +1,78 @@
+
+BookingID, CustomerName, Destination, Transport, PackageType, Price, Days, BookingStatus
+
+Q1. Display all records.
+select * from travelbookings;
+
+Q2. Display only CustomerName and Destination.
+select CustomerName, Destination from travelbookins;
+
+Q3. Show customers whose destination is Goa.
+select * from travelbookings where destination = "Goa"
+
+
+Q4. Show customers whose package price is greater than 20,000.
+select * from travelbookings where price > 20000;
+
+
+Q5. Count bookings for each destination.
+select Destination, count(*) totalCount from travelbookings group by Destination;
+
+
+
+Q6. Find total revenue for each destination.
+
+select Destination, sum(Price) as totalSum from travelbookings 
+group by Destination;
+
+
+Q7. Find average package price for each transport.
+select Transport, avg(Price) from travelbookings group by Transport;
+
+Q7. Find total price for each transport.
+select Transport, sum(Price) from travelbookings group by Transport;
+
+Q7. Find max price for each transport.
+select Transport, max(Price) from travelbookings group by Transport;
+
+Q7. Find min amount spent for each transport.
+select Transport, min(Price) from travelbookings group by Transport;
+
+
+Q8. Find the highest package price for each destination.
+select Destination, max(Price) from travelbookings group by Destination;
+
+
+
+
+Q9. Show destinations having more than 3 bookings.
+select Destination, count(*) totalCount 
+from travelbookings group by Destination
+having totalCount > 3;
+
+Q9. Show destinations having more than 3 bookings and display them in descending
+order of the destination names.
+
+select Destination, count(*) totalCount 
+from travelbookings group by Destination
+having totalCount > 3;
+
+
+
+Q10. Show destinations where total revenue is greater than 50,000.
+select Destination, sum(Price) as totalSum from 
+travelbookings group by Destination
+having totalSum > 50000;
+
+
+Q11. Find the number of confirmed bookings for each destination.
+
+select Destination, count(*) as totalCount 
+from travelbookings where BookingStatus = "Confirmed"
+group by Destination;
+
+
+
+
+
+
