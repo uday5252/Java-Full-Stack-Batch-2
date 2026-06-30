@@ -1,0 +1,239 @@
+
+Trekking Table
+
+| TrekID | TrekkerName | Mountain            | Region      | Difficulty | Guide | Price | DurationDays | Rating | BookingStatus |
+| -----: | ----------- | ------------------- | ----------- | ---------- | ----- | ----: | -----------: | -----: | ------------- |
+|    101 | Rahul       | Everest Base Camp   | Nepal       | Hard       | Amit  | 55000 |           12 |    4.9 | Confirmed     |
+|    102 | Priya       | Kedarkantha         | Uttarakhand | Easy       | Raj   |  9000 |            5 |    4.5 | Confirmed     |
+|    103 | Arjun       | Hampta Pass         | Himachal    | Medium     | Amit  | 14000 |            6 |    4.7 | Pending       |
+|    104 | Sneha       | Valley of Flowers   | Uttarakhand | Easy       | Neha  | 11000 |            5 |    4.8 | Confirmed     |
+|    105 | Vikram      | Everest Base Camp   | Nepal       | Hard       | Amit  | 56000 |           12 |    4.9 | Confirmed     |
+|    106 | Kiran       | Tarsar Marsar       | Kashmir     | Medium     | Raj   | 18000 |            7 |    4.6 | Cancelled     |
+|    107 | Meera       | Kedarkantha         | Uttarakhand | Easy       | Raj   |  9500 |            5 |    4.4 | Confirmed     |
+|    108 | Rohit       | Hampta Pass         | Himachal    | Medium     | Neha  | 15000 |            6 |    4.7 | Confirmed     |
+|    109 | Divya       | Kashmir Great Lakes | Kashmir     | Hard       | Neha  | 22000 |            8 |    4.9 | Confirmed     |
+|    110 | Anil        | Valley of Flowers   | Uttarakhand | Easy       | Neha  | 12000 |            5 |    4.8 | Pending       |
+|    111 | Pooja       | Tarsar Marsar       | Kashmir     | Medium     | Raj   | 18500 |            7 |    4.7 | Confirmed     |
+|    112 | Ravi        | Everest Base Camp   | Nepal       | Hard       | Amit  | 57000 |           12 |    5.0 | Confirmed     |
+|    113 | Kavya       | Kashmir Great Lakes | Kashmir     | Hard       | Neha  | 22500 |            8 |    4.8 | Pending       |
+|    114 | Mohan       | Hampta Pass         | Himachal    | Medium     | Amit  | 14500 |            6 |    4.6 | Confirmed     |
+|    115 | Aisha       | Kedarkantha         | Uttarakhand | Easy       | Raj   |  9800 |            5 |    4.5 | Confirmed     |
+
+
+-- Create Database
+CREATE DATABASE TrekkingDB;
+
+-- Use Database
+USE TrekkingDB;
+
+-- Create Table
+CREATE TABLE Trekking (
+    TrekID INT PRIMARY KEY,
+    TrekkerName VARCHAR(50),
+    Mountain VARCHAR(50),
+    Region VARCHAR(30),
+    Difficulty VARCHAR(20),
+    Guide VARCHAR(30),
+    Price INT,
+    DurationDays INT,
+    Rating DECIMAL(2,1),
+    BookingStatus VARCHAR(20)
+);
+
+-- Insert Data
+INSERT INTO Trekking
+(TrekID, TrekkerName, Mountain, Region, Difficulty, Guide, Price, DurationDays, Rating, BookingStatus)
+VALUES
+(101, 'Rahul', 'Everest Base Camp', 'Nepal', 'Hard', 'Amit', 55000, 12, 4.9, 'Confirmed'),
+
+(102, 'Priya', 'Kedarkantha', 'Uttarakhand', 'Easy', 'Raj', 9000, 5, 4.5, 'Confirmed'),
+
+(103, 'Arjun', 'Hampta Pass', 'Himachal', 'Medium', 'Amit', 14000, 6, 4.7, 'Pending'),
+
+(104, 'Sneha', 'Valley of Flowers', 'Uttarakhand', 'Easy', 'Neha', 11000, 5, 4.8, 'Confirmed'),
+
+(105, 'Vikram', 'Everest Base Camp', 'Nepal', 'Hard', 'Amit', 56000, 12, 4.9, 'Confirmed'),
+
+(106, 'Kiran', 'Tarsar Marsar', 'Kashmir', 'Medium', 'Raj', 18000, 7, 4.6, 'Cancelled'),
+
+(107, 'Meera', 'Kedarkantha', 'Uttarakhand', 'Easy', 'Raj', 9500, 5, 4.4, 'Confirmed'),
+
+(108, 'Rohit', 'Hampta Pass', 'Himachal', 'Medium', 'Neha', 15000, 6, 4.7, 'Confirmed'),
+
+(109, 'Divya', 'Kashmir Great Lakes', 'Kashmir', 'Hard', 'Neha', 22000, 8, 4.9, 'Confirmed'),
+
+(110, 'Anil', 'Valley of Flowers', 'Uttarakhand', 'Easy', 'Neha', 12000, 5, 4.8, 'Pending'),
+
+(111, 'Pooja', 'Tarsar Marsar', 'Kashmir', 'Medium', 'Raj', 18500, 7, 4.7, 'Confirmed'),
+
+(112, 'Ravi', 'Everest Base Camp', 'Nepal', 'Hard', 'Amit', 57000, 12, 5.0, 'Confirmed'),
+
+(113, 'Kavya', 'Kashmir Great Lakes', 'Kashmir', 'Hard', 'Neha', 22500, 8, 4.8, 'Pending'),
+
+(114, 'Mohan', 'Hampta Pass', 'Himachal', 'Medium', 'Amit', 14500, 6, 4.6, 'Confirmed'),
+
+(115, 'Aisha', 'Kedarkantha', 'Uttarakhand', 'Easy', 'Raj', 9800, 5, 4.5, 'Confirmed');
+
+
+
+ Q1. Display the number of trekkers in each region. Show only regions having more than 2 trekkers. Sort by number of trekkers (highest first).
+
+ Output
+
+| Region      | TotalTrekkers |
+| ----------- | ------------: |
+| Uttarakhand |             5 |
+| Kashmir     |             4 |
+| Nepal       |             3 |
+| Himachal    |             3 |
+
+---
+
+ Q2. Find the average trek price for each guide. Display only guides whose average price is above 20000. Sort by average price descending.
+
+ Output
+
+| Guide | AvgPrice |
+| ----- | -------: |
+| Amit  |    39125 |
+
+---
+
+ Q3. Show each difficulty level and total bookings. Display only difficulty levels having at least 4 bookings. Sort alphabetically.
+
+ Output
+
+| Difficulty | TotalBookings |
+| ---------- | ------------: |
+| Easy       |             5 |
+| Hard       |             5 |
+| Medium     |             5 |
+
+---
+
+ Q4. Display total revenue generated by each mountain. Show only mountains earning more than 30000. Sort by revenue descending.
+
+ Output
+
+| Mountain            | Revenue |
+| ------------------- | ------: |
+| Everest Base Camp   |  168000 |
+| Kashmir Great Lakes |   44500 |
+| Hampta Pass         |   43500 |
+| Tarsar Marsar       |   36500 |
+
+---
+
+ Q5. Display the first 2 mountains with the highest average ratings.
+
+ Output
+
+| Mountain            | AvgRating |
+| ------------------- | --------: |
+| Everest Base Camp   |      4.93 |
+| Kashmir Great Lakes |      4.85 |
+
+---
+
+ Q6. Skip the first highest revenue mountain and display the next 3 mountains.
+
+ Output
+
+| Mountain            | Revenue |
+| ------------------- | ------: |
+| Kashmir Great Lakes |   44500 |
+| Hampta Pass         |   43500 |
+| Tarsar Marsar       |   36500 |
+
+---
+
+ Q7. Display guides who handled at least 3 trekkers. Show average rating and sort by average rating descending.
+
+ Output
+
+| Guide | TotalTreks | AvgRating |
+| ----- | ---------: | --------: |
+| Amit  |          5 |      4.82 |
+| Neha  |          5 |      4.80 |
+| Raj   |          5 |      4.54 |
+
+---
+
+ Q8. Find total revenue generated in each region. Show only regions with revenue above 50000. Display only the top 2.
+
+ Output
+
+| Region  | Revenue |
+| ------- | ------: |
+| Nepal   |  168000 |
+| Kashmir |   81000 |
+
+---
+
+ Q9. Display average duration for each difficulty level. Skip the first result after sorting by average duration.
+
+ Output
+
+| Difficulty | AvgDuration |
+| ---------- | ----------: |
+| Medium     |        6.40 |
+| Easy       |        5.00 |
+
+---
+
+ Q10. Show confirmed bookings by guide. Display only guides having more than 2 confirmed bookings.
+
+ Output
+
+| Guide | ConfirmedBookings |
+| ----- | ----------------: |
+| Amit  |                 4 |
+| Raj   |                 4 |
+| Neha  |                 3 |
+
+---
+
+ Q11. Find the top 3 mountains with the highest average trek price. Ignore mountains having fewer than 2 bookings.
+
+ Output
+
+| Mountain            | AvgPrice | TotalBookings |
+| ------------------- | -------: | ------------: |
+| Everest Base Camp   |    56000 |             3 |
+| Kashmir Great Lakes |    22250 |             2 |
+| Tarsar Marsar       |    18250 |             2 |
+
+---
+
+ Q12. Display each guide's total revenue. Skip the highest earning guide and show the next two.
+
+ Output
+
+| Guide | Revenue |
+| ----- | ------: |
+| Neha  |   82500 |
+| Raj   |   55300 |
+
+---
+
+ Q13. Display regions whose average rating is above 4.7. Sort by rating descending.
+
+ Output
+
+| Region  | AvgRating |
+| ------- | --------: |
+| Nepal   |      4.93 |
+| Kashmir |      4.75 |
+
+---
+
+ Q14. Find mountains with more than one confirmed booking. Display total revenue and average rating. Show only the first 3 after sorting by revenue.
+
+ Output
+
+| Mountain          | Revenue | AvgRating | ConfirmedBookings |
+| ----------------- | ------: | --------: | ----------------: |
+| Everest Base Camp |  168000 |      4.93 |                 3 |
+| Hampta Pass       |   29500 |      4.65 |                 2 |
+| Kedarkantha       |   18800 |      4.50 |                 2 |
+
