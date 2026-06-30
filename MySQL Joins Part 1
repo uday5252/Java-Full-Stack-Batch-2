@@ -1,0 +1,134 @@
+-- Create Database
+CREATE DATABASE RailwayDB;
+
+-- Use Database
+USE RailwayDB;
+
+-- ===========================
+-- Create Passenger Table
+-- ===========================
+CREATE TABLE Passengers (
+    Ticket_No INT PRIMARY KEY,
+    Passenger_Name VARCHAR(50),
+    Age INT,
+    Gender VARCHAR(10),
+    Source VARCHAR(50),
+    Destination VARCHAR(50)
+);
+
+-- Insert Data into Passengers
+INSERT INTO Passengers
+(Ticket_No, Passenger_Name, Age, Gender, Source, Destination)
+VALUES
+(1001, 'Rahul', 24, 'Male', 'Hyderabad', 'Chennai'),
+(1002, 'Priya', 22, 'Female', 'Delhi', 'Mumbai'),
+(1003, 'Arjun', 30, 'Male', 'Bengaluru', 'Goa'),
+(1004, 'Sneha', 27, 'Female', 'Pune', 'Kochi');
+
+
+-- ===========================
+-- Create Ticket_Details Table
+-- ===========================
+CREATE TABLE Ticket_Details (
+    Ticket_No INT PRIMARY KEY,
+    Train_Name VARCHAR(50),
+    Coach VARCHAR(10),
+    Seat_No INT,
+    Class VARCHAR(20),
+    Fare DECIMAL(10,2)
+);
+
+-- Insert Data into Ticket_Details
+INSERT INTO Ticket_Details
+(Ticket_No, Train_Name, Coach, Seat_No, Class, Fare)
+VALUES
+(1001, 'Rajdhani', 'B2', 25, 'AC 3 Tier', 1800),
+(1002, 'Duronto', 'A1', 12, 'AC 2 Tier', 2500),
+(1003, 'Shatabdi', 'C3', 18, 'Chair Car', 1200),
+(1005, 'Garib Rath', 'G4', 40, 'AC 3 Tier', 900);
+
+
+-- ===========================
+-- Verify Data
+-- ===========================
+SELECT * FROM Passengers;
+
+SELECT * FROM Ticket_Details;
+
+
+
+
+
+
+
+
+
+-- 1) Display the Name of the passenger, his/her train name,
+-- coach no, seat no who have booked the ticket
+
+-- Passenger Train     Coach Seat
+-- Rahul			Rajdhani  B2     25
+-- Priya			Duronto   A1     12
+-- Arjun     Shadabdi  C3     18
+
+select 
+p.Passenger_name,
+td.Train_name,
+td.Coach,
+td.Seat_No
+from passengers as p inner join ticket_Details as td
+on p.Ticket_No = td.Ticket_No;
+
+-- 1) Display the Name of the passenger, his/her train name,
+-- coach no, seat no who have booked the ticket and also 
+-- passengeres who have not booked the ticket 
+
+
+select 
+p.Passenger_name,
+td.Train_name,
+td.Coach,
+td.Seat_No
+from passengers as p left join ticket_Details as td
+on p.Ticket_No = td.Ticket_No;
+
+
+
+
+-- 1) Display the Name of the passenger, his/her train name,
+-- coach no, seat no who have booked the ticket and also 
+-- the details of the train where no passenger is travelling
+ 
+
+select 
+p.Passenger_name,
+td.Train_name,
+td.Coach,
+td.Seat_No
+from passengers as p right join ticket_Details as td
+on p.Ticket_No = td.Ticket_No;
+
+
+-- write a query to display all 
+-- the passengers who are travelling
+-- who are not traveling and the trains 
+-- which are not booked by
+-- any customer   
+
+select 
+p.Passenger_name,
+td.Train_name,
+td.Coach,
+td.Seat_No
+from passengers as p left join ticket_Details as td
+on p.Ticket_No = td.Ticket_No
+union
+select 
+p.Passenger_name,
+td.Train_name,
+td.Coach,
+td.Seat_No
+from passengers as p right join ticket_Details as td
+on p.Ticket_No = td.Ticket_No;
+
+
